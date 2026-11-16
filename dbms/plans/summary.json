@@ -1,0 +1,66 @@
+[
+  {
+    "stage": "before",
+    "query": "Q01",
+    "min_ms": 1.427917,
+    "median_ms": 1.4585415,
+    "p95_ms": 1.526583,
+    "row_count": 30
+  },
+  {
+    "stage": "before",
+    "query": "Q02",
+    "min_ms": 0.511833,
+    "median_ms": 0.524375,
+    "p95_ms": 0.541125,
+    "row_count": 50
+  },
+  {
+    "stage": "before",
+    "query": "Q06",
+    "min_ms": 0.072291,
+    "median_ms": 0.072938,
+    "p95_ms": 0.074875,
+    "row_count": 50
+  },
+  {
+    "stage": "before",
+    "query": "Q12",
+    "min_ms": 0.014792,
+    "median_ms": 0.0149795,
+    "p95_ms": 0.015834,
+    "row_count": 10
+  },
+  {
+    "stage": "after",
+    "query": "Q01",
+    "min_ms": 0.030334,
+    "median_ms": 0.030667,
+    "p95_ms": 0.031708,
+    "row_count": 30
+  },
+  {
+    "stage": "after",
+    "query": "Q02",
+    "min_ms": 0.041625,
+    "median_ms": 0.0421665,
+    "p95_ms": 0.046625,
+    "row_count": 50
+  },
+  {
+    "stage": "after",
+    "query": "Q06",
+    "min_ms": 0.057458,
+    "median_ms": 0.057709,
+    "p95_ms": 0.066917,
+    "row_count": 50
+  },
+  {
+    "stage": "after",
+    "query": "Q12",
+    "min_ms": 0.012458,
+    "median_ms": 0.012583,
+    "p95_ms": 0.013209,
+    "row_count": 10
+  }
+]

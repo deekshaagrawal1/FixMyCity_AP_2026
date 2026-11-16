@@ -1,0 +1,60 @@
+Q02 | after | REAL captured SQLite plan
+
+SQL:
+-- Officer: assigned active work. :officer_id :limit :offset
+SELECT id,title,status,priority,departmentId,createdAt,dueAt
+FROM Complaint WHERE officerId=:officer_id AND status NOT IN ('RESOLVED','CLOSED')
+ORDER BY createdAt DESC,id LIMIT :limit OFFSET :offset;
+
+Bindings:
+{
+  "citizen_id": "bench-citizen-000",
+  "officer_id": "bench-officer-001",
+  "complaint_id": "c01",
+  "department_id": "dep-roads",
+  "category_id": "cat-roads",
+  "city": "Mumbai",
+  "ward": "Andheri West",
+  "as_of": 1794830400000,
+  "since": 1794528000000,
+  "limit": 50,
+  "offset": 0,
+  "month_start": "2026-06-01",
+  "month_count": 6,
+  "history_id": "h-start-example",
+  "notification_id": "n-start-example",
+  "note": "Maintenance team started work."
+}
+
+EXPLAIN QUERY PLAN (id, parent, unused, detail):
+(8, 0, 112, 'SEARCH Complaint USING INDEX Complaint_officer_active_created_idx (officerId=?)')
+
+EXPLAIN virtual machine bytecode:
+(0, 'Init', 0, 26, 0, None, 0, None)
+(1, 'Noop', 1, 10, 0, None, 0, None)
+(2, 'Integer', 50, 1, 0, None, 0, None)
+(3, 'Variable', 3, 2, 0, None, 0, None)
+(4, 'MustBeInt', 2, 0, 0, None, 0, None)
+(5, 'OffsetLimit', 1, 3, 2, None, 0, None)
+(6, 'OpenRead', 0, 11, 0, '17', 0, None)
+(7, 'OpenRead', 2, 1441, 0, 'k(4,,-,,)', 2, None)
+(8, 'Variable', 1, 4, 0, None, 0, None)
+(9, 'IsNull', 4, 25, 0, None, 0, None)
+(10, 'Affinity', 4, 1, 0, 'B', 0, None)
+(11, 'SeekGE', 2, 25, 4, '1', 0, None)
+(12, 'IdxGT', 2, 25, 4, '1', 0, None)
+(13, 'DeferredSeek', 2, 0, 0, None, 0, None)
+(14, 'IfPos', 2, 24, 1, None, 0, None)
+(15, 'Column', 2, 2, 5, None, 0, None)
+(16, 'Column', 0, 1, 6, None, 0, None)
+(17, 'Column', 0, 9, 7, 'SUBMITTED', 0, None)
+(18, 'Column', 0, 8, 8, 'NORMAL', 0, None)
+(19, 'Column', 0, 12, 9, None, 0, None)
+(20, 'Column', 2, 1, 10, None, 0, None)
+(21, 'Column', 0, 16, 11, None, 0, None)
+(22, 'ResultRow', 5, 7, 0, None, 0, None)
+(23, 'DecrJumpZero', 1, 25, 0, None, 0, None)
+(24, 'Next', 2, 12, 0, None, 0, None)
+(25, 'Halt', 0, 0, 0, None, 0, None)
+(26, 'Transaction', 0, 0, 50, '0', 1, None)
+(27, 'Goto', 0, 1, 0, None, 0, None)

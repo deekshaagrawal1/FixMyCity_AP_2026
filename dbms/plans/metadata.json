@@ -1,0 +1,145 @@
+{
+  "measured_at_utc": "2026-11-16T15:45:24.797669+00:00",
+  "python": "3.14.2",
+  "sqlite": "3.50.4",
+  "os": "Darwin",
+  "os_release": "25.6.0",
+  "architecture": "arm64",
+  "cpu": "arm",
+  "synthetic_complaints": 30000,
+  "synthetic_notifications": 30000,
+  "synthetic_citizens": 1000,
+  "synthetic_officers": 40,
+  "warmups_per_query_per_stage": 5,
+  "repeats_per_query_per_stage": 30,
+  "clock": "time.perf_counter_ns",
+  "unit": "milliseconds",
+  "scope": "execute plus fetchall; warm single-connection reads; no network; no connection/load/EXPLAIN cost",
+  "experimental_indexes": [
+    "Complaint_citizen_created_idx",
+    "Complaint_officer_status_created_idx",
+    "Complaint_officer_active_created_idx",
+    "Complaint_active_due_idx",
+    "Notification_unread_idx"
+  ],
+  "params": {
+    "citizen_id": "bench-citizen-000",
+    "officer_id": "bench-officer-001",
+    "complaint_id": "c01",
+    "department_id": "dep-roads",
+    "category_id": "cat-roads",
+    "city": "Mumbai",
+    "ward": "Andheri West",
+    "as_of": 1794830400000,
+    "since": 1794528000000,
+    "limit": 50,
+    "offset": 0,
+    "month_start": "2026-06-01",
+    "month_count": 6,
+    "history_id": "h-start-example",
+    "notification_id": "n-start-example",
+    "note": "Maintenance team started work."
+  },
+  "input_sha256": {
+    "dbms/03_schema.sql": "c70e4f7884bc31d494027c33c142e327593a0aaa8ae64d75645455a06325015a",
+    "dbms/seed.sql": "dfaf2970f6a9c4bbfa5ddbb77e1a6da27009a246cccd2bd7bd5d16449eea1f2b",
+    "dbms/04_queries.sql": "ba4e1714a29d42befefb8ce70aca27d99bfa6916d9eb138973fc1539917c16f3",
+    "scripts/benchmark.py": "15b2ee751a41d04d1dccd9319f88a1c6898129589575c8f209c5b6aa503286a3"
+  },
+  "total_complaints": 30008,
+  "total_notifications": 30004,
+  "pragmas": {
+    "foreign_keys": 1,
+    "journal_mode": "delete",
+    "synchronous": 2,
+    "cache_size": -2000,
+    "temp_store": 0,
+    "automatic_index": 1,
+    "page_size": 4096
+  },
+  "compile_options": [
+    "ATOMIC_INTRINSICS=1",
+    "COMPILER=clang-16.0.0",
+    "DEFAULT_AUTOVACUUM",
+    "DEFAULT_CACHE_SIZE=-2000",
+    "DEFAULT_FILE_FORMAT=4",
+    "DEFAULT_JOURNAL_SIZE_LIMIT=-1",
+    "DEFAULT_MMAP_SIZE=0",
+    "DEFAULT_PAGE_SIZE=4096",
+    "DEFAULT_PCACHE_INITSZ=20",
+    "DEFAULT_RECURSIVE_TRIGGERS",
+    "DEFAULT_SECTOR_SIZE=4096",
+    "DEFAULT_SYNCHRONOUS=2",
+    "DEFAULT_WAL_AUTOCHECKPOINT=1000",
+    "DEFAULT_WAL_SYNCHRONOUS=2",
+    "DEFAULT_WORKER_THREADS=0",
+    "DIRECT_OVERFLOW_READ",
+    "ENABLE_FTS3",
+    "ENABLE_FTS3_PARENTHESIS",
+    "ENABLE_FTS4",
+    "ENABLE_FTS5",
+    "ENABLE_MATH_FUNCTIONS",
+    "ENABLE_RTREE",
+    "MALLOC_SOFT_LIMIT=1024",
+    "MAX_ATTACHED=10",
+    "MAX_COLUMN=2000",
+    "MAX_COMPOUND_SELECT=500",
+    "MAX_DEFAULT_PAGE_SIZE=8192",
+    "MAX_EXPR_DEPTH=1000",
+    "MAX_FUNCTION_ARG=1000",
+    "MAX_LENGTH=1000000000",
+    "MAX_LIKE_PATTERN_LENGTH=50000",
+    "MAX_MMAP_SIZE=0x7fff0000",
+    "MAX_PAGE_COUNT=0xfffffffe",
+    "MAX_PAGE_SIZE=65536",
+    "MAX_SQL_LENGTH=1000000000",
+    "MAX_TRIGGER_DEPTH=1000",
+    "MAX_VARIABLE_NUMBER=32766",
+    "MAX_VDBE_OP=250000000",
+    "MAX_WORKER_THREADS=8",
+    "MUTEX_PTHREADS",
+    "OMIT_AUTOINIT",
+    "SYSTEM_MALLOC",
+    "TCL",
+    "TEMP_STORE=1",
+    "THREADSAFE=1"
+  ],
+  "query_results": {
+    "before:Q01": {
+      "row_count": 30,
+      "sha256": "a402b5dda7317b84899a0010cac46f48a4709ee53fa4a0349eff4383c42efb1a"
+    },
+    "before:Q02": {
+      "row_count": 50,
+      "sha256": "e3e0bd6ffd8d2cde60caddc3d61d1c61fd0119a945adbf9fbf228200bd6ac348"
+    },
+    "before:Q06": {
+      "row_count": 50,
+      "sha256": "7debbdfe21263bfe7568787c0993aa7f75a885c4238a373cd908c42d11ba7d76"
+    },
+    "before:Q12": {
+      "row_count": 10,
+      "sha256": "756fb281542c8bc5da80359708829aed7dee701431439dd4583cf322884a915b"
+    },
+    "after:Q01": {
+      "row_count": 30,
+      "sha256": "a402b5dda7317b84899a0010cac46f48a4709ee53fa4a0349eff4383c42efb1a"
+    },
+    "after:Q02": {
+      "row_count": 50,
+      "sha256": "e3e0bd6ffd8d2cde60caddc3d61d1c61fd0119a945adbf9fbf228200bd6ac348"
+    },
+    "after:Q06": {
+      "row_count": 50,
+      "sha256": "7debbdfe21263bfe7568787c0993aa7f75a885c4238a373cd908c42d11ba7d76"
+    },
+    "after:Q12": {
+      "row_count": 10,
+      "sha256": "756fb281542c8bc5da80359708829aed7dee701431439dd4583cf322884a915b"
+    }
+  },
+  "result_equality_verified": true,
+  "integrity_check": "ok",
+  "foreign_key_violations": [],
+  "database_bytes": 23486464
+}
